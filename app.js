@@ -1,5 +1,5 @@
 // Set this after deploying apps-script/Code.gs as a Google Apps Script web app.
-const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKBlRKGxr2Irv6pVdQ5PAjEi_ecYLzQ6-zF2KZOwFyrY5th3rl70eQ6SiPry4np9gx/exec";
 
 const form = document.getElementById("reminderForm");
 const startButton = document.getElementById("startButton");
