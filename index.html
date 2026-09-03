@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Send a daily email reminder until the recipient replies.">
+  <title>Daily Email Reminder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <header class="header">
+        <div>
+          <p class="eyebrow">PERSONAL AUTOMATION</p>
+          <h1>Daily Email Reminder</h1>
+          <p class="subtitle">Send one reminder every day until the recipient replies.</p>
+        </div>
+        <div id="statusBadge" class="badge stopped">Stopped</div>
+      </header>
+
+      <form id="reminderForm" novalidate>
+        <label>
+          Recipient email
+          <input id="to" name="to" type="email" autocomplete="email" placeholder="recipient@example.com" required>
+        </label>
+
+        <label>
+          Subject
+          <input id="subject" name="subject" type="text" maxlength="200" placeholder="Gentle reminder" required>
+        </label>
+
+        <label>
+          Email body
+          <textarea id="body" name="body" rows="9" maxlength="10000" placeholder="Write your reminder here..." required></textarea>
+        </label>
+
+        <div class="grid">
+          <label>
+            Daily send hour
+            <select id="sendHour" name="sendHour">
+              <option value="7">7:00 AM</option>
+              <option value="8">8:00 AM</option>
+              <option value="9" selected>9:00 AM</option>
+              <option value="10">10:00 AM</option>
+              <option value="11">11:00 AM</option>
+              <option value="12">12:00 PM</option>
+              <option value="13">1:00 PM</option>
+              <option value="14">2:00 PM</option>
+              <option value="15">3:00 PM</option>
+              <option value="16">4:00 PM</option>
+              <option value="17">5:00 PM</option>
+              <option value="18">6:00 PM</option>
+              <option value="19">7:00 PM</option>
+              <option value="20">8:00 PM</option>
+              <option value="21">9:00 PM</option>
+            </select>
+          </label>
+
+          <label>
+            Image attachment
+            <input id="attachment" name="attachment" type="file" accept="image/*">
+            <small>Optional · maximum 2 MB</small>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="startButton" class="primary" type="submit">Start reminder</button>
+          <button id="stopButton" class="secondary" type="button">Stop</button>
+        </div>
+      </form>
+
+      <section class="status-panel" aria-live="polite">
+        <h2>Status</h2>
+        <dl>
+          <div><dt>State</dt><dd id="stateText">Stopped</dd></div>
+          <div><dt>Started</dt><dd id="startedText">—</dd></div>
+          <div><dt>Last sent</dt><dd id="lastSentText">—</dd></div>
+          <div><dt>Reply</dt><dd id="replyText">Not received</dd></div>
+        </dl>
+      </section>
+
+      <p id="message" class="message" role="status"></p>
+      <p class="note">The first send is handled by Google Apps Script. The script must be deployed as a web app and configured with your Gmail/Drive permissions.</p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
